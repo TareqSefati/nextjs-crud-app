@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
-import UpdateProduct from './UpdateProduct';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,13 +32,6 @@ export default function ProductTable() {
             })
             .catch((error) => console.log("Error: ", error));
     }
-
-    const editProduct = (productId)=>{
-        console.log("Try to update product");
-        //router.push(`/updateProduct/${productId}`);
-        <UpdateProduct/>
-    }
-
     return (
         <div>
             <div className="overflow-x-auto mt-8">
