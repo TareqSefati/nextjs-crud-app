@@ -1,8 +1,13 @@
 "use client"
 
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import UpdateProduct from './UpdateProduct';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export default function ProductTable() {
+    const router = useRouter();
     const [products, setProducts] = useState([]);
 
     const getAndSetProduct = () => {
@@ -27,6 +32,12 @@ export default function ProductTable() {
                 getAndSetProduct();
             })
             .catch((error) => console.log("Error: ", error));
+    }
+
+    const editProduct = (productId)=>{
+        console.log("Try to update product");
+        //router.push(`/updateProduct/${productId}`);
+        <UpdateProduct/>
     }
 
     return (
@@ -60,6 +71,7 @@ export default function ProductTable() {
                                                 </div>
                                                 <div>
                                                     <div className="font-bold">{product.ProductName}</div>
+                                                    <div className="text-sm opacity-50">{product.ProductCode}</div>
                                                 </div>
                                             </div>
                                         </td>
@@ -73,11 +85,20 @@ export default function ProductTable() {
                                             <p>{product.TotalPrice}</p>
                                         </td>
                                         <th>
-                                            <button className="btn btn-outline btn-xs btn-info mr-2">Edit</button>
+                                            <button 
+                                                className="btn btn-outline btn-xs btn-info mr-2"
+                                                onClick={() => {
+                                                    router.push(`/updateProduct/${product._id}`);
+                                                }
+                                                }>
+                                                Edit
+                                                <FontAwesomeIcon icon={faEdit} size="sm" />
+                                            </button>
                                             <button
                                                 className="btn btn-outline btn-xs btn-error"
                                                 onClick={() => deleteProduct(product._id)}>
                                                 Delete
+                                                <FontAwesomeIcon icon={faTrash} size="sm" />
                                             </button>
                                         </th>
                                     </tr>

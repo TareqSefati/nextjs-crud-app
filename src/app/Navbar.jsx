@@ -29,7 +29,7 @@ export default function Navbar() {
                             <li><Link href={"/createProduct"}>Create Product</Link></li>
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Next CRUD App</a>
+                    <p className="text-xl font-bold">NEXT CRUD App</p>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -38,9 +38,6 @@ export default function Navbar() {
                         </li>
                         <li><Link href={"/createProduct"}>Create Product</Link></li>
                     </ul>
-                </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
                 </div>
             </div>
         </div>
