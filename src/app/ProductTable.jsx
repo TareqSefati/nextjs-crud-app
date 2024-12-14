@@ -28,7 +28,7 @@ export default function ProductTable() {
             })
             .catch((error) => console.log("Error: ", error));
     }
-    
+
     return (
         <div>
             <div className="overflow-x-auto mt-8">
